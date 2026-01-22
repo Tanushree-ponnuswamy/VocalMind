@@ -1,0 +1,8 @@
+# Ignore cache, audio, venv, etc.
+__pycache__/
+*.pyc
+venv/
+env/
+audio/*
+!audio/.gitkeep
+.DS_Store
