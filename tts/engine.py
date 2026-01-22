@@ -4,7 +4,9 @@ from tts.voices import get_voice_id_by_gender
 class TTSEngine:
     def __init__(self):
         print("Initializing Standard TTS Engine...")
-
+        # We do NOT initialize self.engine here because pyttsx3 on Windows
+        # has issues with event loops if reused across multiple runAndWait calls
+        # in an interactive loop. We initialize it per-generation instead.
 
     def generate_audio(self, text, gender_input, output_filename):
         # Initialize a fresh engine instance for each run to avoid event loop hanging issues
@@ -36,4 +38,3 @@ class TTSEngine:
             del engine
         
         return output_filename
-
