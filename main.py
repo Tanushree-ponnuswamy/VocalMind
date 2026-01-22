@@ -2,6 +2,7 @@ import os
 import time
 from tts.engine import TTSEngine
 from config.settings import AUDIO_DIR
+from utils import validate_input
 
 def main():
     try:
@@ -25,7 +26,7 @@ def main():
                 continue
                 
             text = input("Enter text to generate audio: ").strip()
-            if not text:
+            if not validate_input(text):
                 print("Text cannot be empty.")
                 continue
                 
