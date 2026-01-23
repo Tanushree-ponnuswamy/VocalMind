@@ -9,7 +9,7 @@ def run_test():
         engine = TTSEngine()
         print("Engine initialized.")
         
-        text = "Hello, checking the voice quality."
+        text = " In the ancient land of Eldoria, where skies shimmered and forests, whispered secrets to the wind, lived a dragon named Zephyros.  Not the 'burn it all down' kind...  but he was gentle, wise, with eyes like old stars.  Even the birds fell silent when he passed. He spent his days cataloging the clouds and learning the songs of the crickets, for he knew that every sound held a story worth remembering."
         gender = "male"
         output_file = os.path.join(AUDIO_DIR, "test_output.wav")
         
