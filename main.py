@@ -1,5 +1,14 @@
 import os
 import time
+import warnings
+import logging
+
+# Suppress warnings and logs for a cleaner terminal
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+logging.getLogger("TTS").setLevel(logging.ERROR)
+
 from tts.engine import TTSEngine
 from config.settings import AUDIO_DIR
 from utils import validate_input
@@ -35,13 +44,17 @@ def main():
             filepath = os.path.join(AUDIO_DIR, filename)
             
             print("Generating audio...")
+            gender_map = {'1': 'male', '2': 'female'}
+            selected_gender = gender_map.get(choice, 'male') # Default to male if something goes wrong, though valid input checked above
+            
             try:
-                engine.generate_audio(text, choice, filepath)
-                print(f"Audio saved successfully: {filepath}")
+                engine.generate_audio(text, selected_gender, filepath)
+                print("audio generation is successful")
+                
             except Exception as e:
                 print(f"Error generating audio: {e}")
                 
-            # Optional: Ask to play or continue? (Not in requirements, just repeat loop)
+            # Loop continues...
             
     except KeyboardInterrupt:
         print("\nExiting...")
