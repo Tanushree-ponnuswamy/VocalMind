@@ -1,16 +1,14 @@
-# Core neural TTS
-TTS==0.22.0
+# Core Kokoro Dependencies - Python 3.10 Optimized
+numpy>=1.26.4
+torch
+onnxruntime
+soundfile
+scipy
+kokoro>=0.3.4
+phonemizer-fork
+hf_transfer
 
-# Deep learning backend
-torch>=2.0.0
-
-# Audio processing
-soundfile>=0.12.1
-librosa==0.10.0
-
-# Build & compatibility (important on Windows)
-Cython>=0.29
-numpy<2.0
-
-# Optional (only if you export MP3 later)
-# pydub
+# Audio Engineering for Natural Sync
+pydub
+librosa
+numba
